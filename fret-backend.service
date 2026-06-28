@@ -1,0 +1,15 @@
+[Unit]
+Description=FRET ERP Backend + ngrok tunnel
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ninja/.openclaw/workspace/fret-erp
+Environment=PORT=3000
+Environment=API_KEY=fret-api-key-2026
+ExecStart=/usr/bin/node /home/ninja/.openclaw/workspace/fret-erp/backend/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

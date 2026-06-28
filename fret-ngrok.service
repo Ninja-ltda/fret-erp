@@ -1,0 +1,13 @@
+[Unit]
+Description=ngrok tunnel for FRET ERP
+After=fret-backend.service
+BindsTo=fret-backend.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ngrok http 3000 --region=eu --log=stdout
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

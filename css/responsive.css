@@ -1,0 +1,66 @@
+/* ─── RESPONSIVE FULL — Mobile, Tablet, Desktop ─── */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .mobile-nav {
+    display: flex !important;
+    position: fixed; bottom: 0; left: 0; width: 100%;
+    background: #fff; border-top: 1px solid #e0e0e0;
+    padding: 4px 0 env(safe-area-inset-bottom, 8px) 0;
+    z-index: 999; justify-content: space-around;
+  }
+  .btn-mobile-nav {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    background: transparent; border: none; color: #888;
+    font-size: 0.65rem; padding: 6px 8px; border-radius: 12px; cursor: pointer;
+  }
+  .btn-mobile-nav.active { color: var(--primary); background: #e8f0fe; }
+  .btn-mobile-nav span { font-size: 0.6rem; }
+  .main-content { margin-left: 0 !important; padding: 12px !important; padding-bottom: 80px !important; }
+  .page-title { font-size: 1.25rem; }
+  /* Cards grid: 2 col on mobile */
+  .card-moderno .card-number { font-size: 1.5rem; }
+  .table-moderna { font-size: 0.8rem; }
+  .table-moderna th, .table-moderna td { padding: 8px 6px; }
+  /* Hide less important cols on mobile */
+  .hide-mobile { display: none; }
+  /* Form full width */
+  .form-control-moderno, select.form-control-moderno { width: 100%; }
+  /* Map takes full height minus nav */
+  #mapaContainer, .mapa-wrapper { height: calc(100vh - 180px) !important; min-height: 300px; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet */
+  .sidebar { width: 160px; }
+  .btn-sidebar { font-size: 13px; padding: 10px 12px; }
+  .btn-sidebar i { font-size: 1.1rem; }
+  .main-content { margin-left: 160px !important; padding: 18px !important; }
+  .card-moderno .card-number { font-size: 1.8rem; }
+}
+
+@media (min-width: 1025px) {
+  /* Desktop — already default */
+}
+
+/* ─── Touch-friendly ─── */
+@media (hover: none) and (pointer: coarse) {
+  .btn-sidebar, .btn-mobile-nav, button, .btn-icon { min-height: 44px; min-width: 44px; }
+  input, select, textarea { font-size: 16px !important; } /* Prevent iOS zoom */
+}
+
+/* ─── Scrollable tables on mobile ─── */
+.table-responsive-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* ─── Map full height ─── */
+.mapa-wrapper { height: calc(100vh - 140px); min-height: 400px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--card-shadow); }
+
+/* ─── Toast on mobile ─── */
+@media (max-width: 768px) {
+  .toast-container { left: 8px; right: 8px; bottom: 70px; }
+}
+
+/* ─── Navbar compact on mobile ─── */
+@media (max-width: 480px) {
+  .navbar-brand { font-size: 1rem !important; }
+  .navbar { padding: 8px 12px !important; }
+}
