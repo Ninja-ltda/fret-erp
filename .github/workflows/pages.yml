@@ -13,11 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Copy frontend to deploy directory
+        run: |
+          mkdir -p _deploy
+          cp -r frontend/* _deploy/
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend
+          publish_dir: ./_deploy
           publish_branch: gh-pages
-          commit_message: "🚀 Deploy frontend [skip ci]"
+          force_orphan: true
+          commit_message: "🚀 Deploy automático [skip ci]"
