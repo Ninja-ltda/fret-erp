@@ -1,0 +1,273 @@
+/* VARIABLES & BASE */
+:root {
+  --primary: #1a3a5c;
+  --primary-light: #2b5a8a;
+  --accent: #f0ad4e;
+  --accent2: #5bc0de;
+  --bg: #f0f4f8;
+  --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --green: #28a745;
+  --red: #dc3545;
+  --orange: #fd7e14;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.bg-dark-blue { background: var(--primary); }
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 56px);
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+  padding: 12px 8px;
+  z-index: 900;
+  overflow-y: auto;
+}
+.btn-sidebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  color: #444;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 2px;
+}
+.btn-sidebar:hover { background: #e8f0fe; color: var(--primary); }
+.btn-sidebar.active { background: var(--primary); color: #fff; }
+.btn-sidebar i { font-size: 1.3rem; }
+
+/* MAIN CONTENT */
+.main-content {
+  margin-left: 200px;
+  margin-top: 56px;
+  padding: 20px 24px;
+  min-height: calc(100vh - 56px);
+}
+
+/* PAGE TITLE */
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+.card-moderno {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px;
+  transition: transform 0.2s;
+  border: none;
+}
+.card-moderno:hover { transform: translateY(-2px); }
+.bg-purple { background: #8b5cf6 !important; }
+.card-moderno .card-icon {
+  font-size: 2rem;
+  color: var(--primary-light);
+  margin-right: 12px;
+}
+.card-moderno .card-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+.card-moderno .card-label {
+  font-size: 0.9rem;
+  color: #777;
+  font-weight: 500;
+}
+
+/* STATUS BADGES */
+.status-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.status-planejada, .status-pendente { background: #e8f0fe; color: #1967d2; }
+.status-em_andamento, .status-aceite, .status-em_rota { background: #fff3cd; color: #856404; }
+.status-concluida, .status-concluido { background: #d4edda; color: #155724; }
+.status-cancelada, .status-cancelado { background: #f8d7da; color: #721c24; }
+.status-recusada { background: #f8d7da; color: #721c24; }
+
+/* TABLES */
+.table-moderna {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+.table-moderna th {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 10px 12px;
+  border-bottom: 2px solid #e0e0e0;
+}
+.table-moderna td {
+  padding: 12px;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  vertical-align: middle;
+}
+
+/* MOBILE NAV */
+.mobile-nav { display: none; }
+
+/* BUTTONS */
+.btn-primary-custom {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-primary-custom:hover { background: var(--primary-light); transform: translateY(-1px); }
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-ghost {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-ghost:hover { background: var(--primary); color: #fff; }
+.btn-sm { padding: 6px 14px; font-size: 0.85rem; }
+.btn-icon {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: all 0.15s;
+}
+.btn-icon:hover { background: #e0e0e0; }
+
+/* FORMS */
+.form-control-moderno {
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.form-control-moderno:focus {
+  border-color: var(--primary-light);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(43,90,138,0.15);
+}
+label { font-weight: 600; color: #444; margin-bottom: 4px; display: block; }
+
+/* LAYOUT HELPERS */
+.gap-3 { gap: 16px; }
+.gap-2 { gap: 12px; }
+.flex-wrap { flex-wrap: wrap; }
+.d-flex { display: flex; }
+.align-items-center { align-items: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-center { justify-content: center; }
+.mt-3 { margin-top: 16px; }
+.mb-3 { margin-bottom: 16px; }
+.mb-2 { margin-bottom: 12px; }
+.ms-auto { margin-left: auto; }
+.text-muted { color: #888; }
+
+/* SECTION CARDS INSIDE PAGES */
+.section-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.section-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    padding: 6px 0;
+    z-index: 999;
+    justify-content: space-around;
+  }
+  .btn-mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  .btn-mobile-nav.active { color: var(--primary); background: #e8f0fe; }
+  .btn-mobile-nav span { font-size: 0.65rem; }
+  .main-content {
+    margin-left: 0;
+    padding: 16px;
+    padding-bottom: 70px;
+  }
+  .card-moderno .card-number { font-size: 1.6rem; }
+  .page-title { font-size: 1.3rem; }
+}
