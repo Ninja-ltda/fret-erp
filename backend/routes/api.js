@@ -312,4 +312,22 @@ router.put('/solicitacoes/:id/status', (req, res) => {
   res.json({ ok: true });
 });
 
+// ---------- PAGAMENTOS POR MOTORISTA (km × €0.13) ----------
+router.get('/motoristas/pagamentos', (req, res) => {
+  const db = getDatabase();
+  const data = db.prepare(`
+    SELECT
+      m.id, m.nome,
+      COALESCE(SUM(ra.km_rodados), 0) AS km_total,
+      ROUND(COALESCE(SUM(ra.km_rodados), 0) * 0.13, 2) AS valor_receber,
+      ROUND(COALESCE(SUM(ra.valor_adiantamento), 0), 2) AS adiantamentos
+    FROM motoristas m
+    LEFT JOIN rotas_atribuicao ra ON ra.motorista_id = m.id AND ra.status = 'concluido'
+    WHERE m.ativo = 1
+    GROUP BY m.id
+    ORDER BY valor_receber DESC
+  `).all();
+  res.json(data);
+});
+
 module.exports = router;

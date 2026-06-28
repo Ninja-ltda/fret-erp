@@ -57,6 +57,7 @@ const API = {
 
   dashboard: () => API.get('/dashboard'),
   motoristas: () => API.get('/motoristas'),
+  motoristasPagamentos: () => API.get('/motoristas/pagamentos'),
   caminhoes: () => API.get('/caminhoes'),
   rotas: () => API.get('/rotas'),
   postos: () => API.get('/postos'),
